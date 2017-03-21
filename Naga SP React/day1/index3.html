@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <!-- Load Traceur Compiler -->
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+</head>
+
+    <body>
+        <header>Using ES 6</header>
+
+        
+
+        
+
+
+        <script type="module">
+
+        //example 3
+
+ let circleArea = (pi, r) => {
+                          let area = pi * r * r;
+                          return area;
+                      }
+
+            let result = circleArea(3.14, 10);
+
+            console.log( "area: " , result); 
+            
+        //  function circleArea(p, r) {...}
+        
+        // var circleArea = function(p, r){...}
+
+//------------------------------------------------------------------------
+
+        //example 4
+
+            function myFunc(x = 1, y = 2, z = 3) {
+                   console.log(x, y, z);   
+                }
+                
+                myFunc(3,4)
+
+//-----------------------------------------------------------------------
+
+    //example 5
+                  let array1 = [2,3,4];
+          let array2 = [1, ...array1, 5, 6, 7]; 
+
+          console.log(array2);  // [1,2,3,4,5,6,7]
+          
+          //spread operator
+
+
+//-------------------------------------------------------------------------
+
+
+      //example 6
+
+                   class Person {
+
+                // equivalent of the PersonType constructor
+                constructor(name) {
+                    this.name = name;
+                }
+
+                // equivalent of PersonType.prototype.sayName
+                sayName() {
+                    console.log( "name: " + this.name);
+                }
+            }
+
+            let person = new Person("Ajay");
+            person.sayName();   
+
+            console.log(person instanceof Person);     // true
+            console.log(person instanceof Object); 
+//---------------------------------------
+
+        //example 7
+
+             class Student {
+
+                constructor(name, age) {
+                    this.name = name;
+                    this._age = age;
+                }
+                getName() {return this.name;}
+                setName(name){ this.name = name;}
+
+              
+                set age(value){this._age = value;}
+                get age() {return this._age;}
+  
+            } // eo class Student
+
+            class Person extends Student {
+
+                constructor(name, age, citizen){
+                    super(name, age);  
+                    this.citizen = citizen;
+                   
+
+                 }
+
+                getCitizen(){ return this.citizen;}
+                 getName(){ return super.getName();}
+  
+            }  // eo Person
+
+
+
+            var st = new Student("Ram", 25);
+            var p = new Person("Raj", 21, "India");
+
+            st.age = 12; //executes setter
+            console.log("age: " + st.age); //executes getter              class Person {
+
+                // equivalent of the PersonType constructor
+                constructor(name) {
+                    this.name = name;
+                }
+
+                // equivalent of PersonType.prototype.sayName
+                sayName() {
+                    console.log( "name: " + this.name);
+                }
+            }
+
+            let person = new Person("Ajay");
+            person.sayName();   
+
+            console.log(person instanceof Person);     // true
+            console.log(person instanceof Object); 
+//---------------------------------------------
+
+
+//example 8
+
+  let myArray = [1, 2, 3];
+          let a, b, c;
+
+          [a, b, c] = myArray; //array destructuring assignment syntax
+          console.log( "a: ", a);
+
+//--------------------------------
+
+//example 9 
+  
+            let object = {"name" : "Ram", "age" : 28, 
+                           "tel" : {"std" : "080", "num" : 22134541}
+                         };
+            let name, age, tel;
+
+            // note the brackets ( ...)  ;
+            ({name, age, tel} = object) ; //obj destructuring i.e. deep copy
+            console.log("name: ", name) ;
+            console.log("tel num: ", tel.num) ;
+
+//---------------------
+
+
+//example 10
+  
+//----------------------------
+
+
+//example 11
+
+//------------------------------
+
+//example 12
+
+//----------------------------
+
+
+//example 13
+
+//------------------------------
+
+//example 14
+
+//----------------------------
+
+
+//example 15
+
+//------------------------------
+        </script>
+    </body>
+</html>

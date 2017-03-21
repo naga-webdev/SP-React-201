@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+</head>
+
+    <body>
+        <header>Using ES 6</header>
+        <p>see msgs in console.</p>
+
+        <script type="module">
+            class Polygon {
+            
+            constructor(height,width)
+            {
+              this.name="polygon";
+                this.height=height;
+                this.width=width;
+            }
+              
+            announce()
+            {
+              console.log("Polygon Width" , this.width);
+            }
+            
+             parentMethod()
+              {
+                return this.name;
+              }    
+        }
+
+        let p = new Polygon(300, 400);
+        p.announce();
+//-----------------------------------------------------------
+
+        class Square extends Polygon {
+         
+             constructor(width)
+             {
+                super(width, width); 
+                this.width=width;
+             }
+            announce()
+             {
+                 console.log("Square width" , this.width);
+             } 
+            get area()
+            {
+               let ar=this.width * this.width;
+               return ar;
+            } 
+    
+          set area(value) {
+            this.area = value;
+          }
+    
+        }
+
+        let s = new Square(5);
+        s.announce();
+        console.log('The area of this square: ' + s.area);
+
+ //-------------------------------------------------
+         class Rectangle extends Polygon {
+                   
+                constructor(height,width)
+                    {
+                        super(height, width); 
+                    this.height=height;
+                    this.width=width;
+                    }
+        
+             announce()
+                    {
+                      console.log("Rectangle" , this.width);
+                        let msg=super.parentMethod();
+                      console.log(msg ,  "is derived from the Greek polus (many) and gonia (angle).");
+                    } 
+        }
+
+        let r = new Rectangle(50, 60);
+        r.announce();
+        </script>
+    </body>
+</html>
+
+
+
+
+<!--
+    ======================
+Info: this figure is:  Polygon width:  400
+3d_class_polygon_inline_script_1.js:11 Info: this figure is:  Square width:  5
+3d_class_polygon_inline_script_1.js:36 The area of this square: 25
+3d_class_polygon_inline_script_1.js:43 Rect:  Rectangle.
+3d_class_polygon_inline_script_1.js:14 "Polygon" is derived from the Greek polus (many) and gonia (angle).
+-->
